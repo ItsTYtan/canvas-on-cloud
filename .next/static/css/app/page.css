@@ -1,0 +1,32 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/ui/home.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+.home_sideNav__rGKEz {
+    grid-column-start: 1;
+    grid-row: 2 / -1;
+    padding: 24px 8px;
+    border-right: 0.5px solid black;
+}
+
+.home_navButton__KA9WK {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    border-radius: 16px;
+    padding: 4px 16px;
+}
+
+.home_label__pNoWx {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.home_documentList__ffhOH {
+    grid-column: 2 / -1;
+    padding: 24px;
+}
