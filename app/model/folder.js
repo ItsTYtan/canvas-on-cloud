@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import File from '@/app/model/file';
+
 const Schema = mongoose.Schema;
-const File = require('./file');
 
 const folderSchema = new Schema({
     _id: Number,
@@ -56,5 +57,4 @@ folderSchema.methods.updateFolderFiles = async function(filePath, options) {
     }
 }
 
-const Folder = mongoose.models.Folder || mongoose.model('Folder', folderSchema);
-module.exports = Folder;
+export default mongoose.models.Folder || mongoose.model('Folder', folderSchema);

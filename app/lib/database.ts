@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import User from '@/app/model/user';
 import Course from '@/app/model/course';
 import Folder from '@/app/model/folder';
+import File from '@/app/model/file';
 
 export default class MongoDb {
   private static DATABASE_URL : string = process.env.DATABASE_URL || "";
@@ -20,17 +21,21 @@ export default class MongoDb {
   }
 
   /* Uses personal api key for now for development purposes */
-  public async getUser() : Promise<{canvas_api_key: string, courses: any}> {
-    return await User
+  public getUser() : Promise<{canvas_api_key: string, courses: any}> {
+    return User
       .findOne({canvas_api_key: process.env.CANVAS_API_KEY})
-      .populate('courses');
+      .populate('courses').exec();
   }
 
-  public async getCourse(id : Number) : Promise<{_id: number, course_name: string, folders: []}> {
-    return Course.findById(id).populate('folders');
+  public getCourse(id : Number) : Promise<{_id: number, course_name: string, folders: []}> {
+    return Course.findById(id).populate('folders').exec();
   }
 
-  public async getFolder(id : Number) : Promise<{_id: number, folder_name: string, files: []}>{
-    return Folder.findById(id).populate('files');
+  public getFolder(id : Number) : Promise<{_id: number, folder_name: string, files: []}> {
+    return Folder.findById(id).populate('files').exec();
+  }
+
+  public searchFiles(name : string) : Promise<any> {
+    return File.find({file_name: RegExp(name)}).limit(5).exec();
   }
 }

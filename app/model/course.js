@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import Folder from '@/app/model/folder';
+
 const Schema = mongoose.Schema;
-const Folder = require('./folder');
 
 const courseSchema = new Schema({
     _id: Number,
@@ -55,5 +56,4 @@ courseSchema.methods.updateCourseFolders = async function(folderPath, options) {
     }
 }
 
-const Course = mongoose.models.Course || mongoose.model('Course', courseSchema);
-module.exports = Course;
+export default mongoose.models.Course || mongoose.model('Course', courseSchema);

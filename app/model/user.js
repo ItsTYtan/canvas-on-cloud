@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const Course = require('./course');
+import mongoose from 'mongoose';
+import Course from '@/app/model/course';
+
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -63,5 +64,4 @@ userSchema.methods.updateUserCourses = async function() {
     }
 }
 
-const User = mongoose.models.User || mongoose.model('User', userSchema);
-module.exports = User;
+export default mongoose.models.User || mongoose.model('User', userSchema);
