@@ -15,7 +15,7 @@ export default async function Page({ params, searchParams } : PageProps) {
 
 interface PageProps {
     params : {
-        course_id : number
+        course_id: number
     },
     searchParams?: {
         query?: string;
